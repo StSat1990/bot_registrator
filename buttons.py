@@ -1,10 +1,15 @@
 from telebot import types
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton, CallbackQuery
 
-def choose_buttons():
-    buttons = types.ReplyKeyboardMarkup(resize_keyboard=True)
+def language_buttons():
+    buttons = InlineKeyboardMarkup(row_width=2)
 
-    start_button = types.KeyboardButton('Начать')
-    buttons.add(start_button)
+    language_ru = InlineKeyboardButton(text='Русский', callback_data='ru')
+    language_eng = InlineKeyboardButton(text='Английский', callback_data='eng')
+
+    buttons.row(language_ru, language_eng)
+
+    return buttons
 
     return buttons
 def number_buttons():
